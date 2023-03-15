@@ -25,6 +25,10 @@ public class LocalizacaoApplication implements CommandLineRunner {
 	private void salvarCidade(){
 		var cidade = new CidadeEntity(1L,"Gama",150000L);
 		cidadeRepository.save(cidade);
+		cidade = new CidadeEntity(2L,"Tagua",250000L);
+		cidadeRepository.save(cidade);
+		cidade = new CidadeEntity(3L,"Lago Azul",50000L);
+		cidadeRepository.save(cidade);
 	}
 
 	private void listarCidades(){
