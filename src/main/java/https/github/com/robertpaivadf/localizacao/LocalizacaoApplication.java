@@ -33,6 +33,10 @@ public class LocalizacaoApplication implements CommandLineRunner {
 
 	private void listarCidades(){
 		cidadeRepository.findAll().forEach(System.out::println);
+		cidadeRepository.findByNomeLike("%zul%").forEach(System.out::println);
+		cidadeRepository.findByNomeLike2("%gama%").forEach(System.out::println);
+
+
 	}
 
 	public static void main(String[] args) {
