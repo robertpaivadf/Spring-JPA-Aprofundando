@@ -1,6 +1,7 @@
 package https.github.com.robertpaivadf.localizacao.service;
 
 import https.github.com.robertpaivadf.localizacao.domain.repository.CidadeRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class CidadeService {
     }
 
     public void listarCidadesPorNome(){
-        repository.findByNomeLike("%La%");
+        repository.findByNomeLike("%La%", Sort.by("qtdHabitantes", "nome")).forEach(System.out::println);
     }
 
 

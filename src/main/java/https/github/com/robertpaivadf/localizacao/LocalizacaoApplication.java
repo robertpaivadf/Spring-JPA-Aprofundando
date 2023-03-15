@@ -2,6 +2,7 @@ package https.github.com.robertpaivadf.localizacao;
 
 import https.github.com.robertpaivadf.localizacao.domain.entity.CidadeEntity;
 import https.github.com.robertpaivadf.localizacao.domain.repository.CidadeRepository;
+import https.github.com.robertpaivadf.localizacao.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class LocalizacaoApplication implements CommandLineRunner {
 
 	@Autowired
-	CidadeRepository cidadeRepository;
+	private CidadeRepository cidadeRepository;
+
+	@Autowired
+	private CidadeService cidadeService;
+
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -37,8 +42,8 @@ public class LocalizacaoApplication implements CommandLineRunner {
 
 		System.out.println();System.out.println("findAll");
 		cidadeRepository.findAll().forEach(System.out::println);
-		System.out.println();System.out.println("findByNomeLike");
-		cidadeRepository.findByNomeLike("%zul%").forEach(System.out::println);
+//		System.out.println();System.out.println("findByNomeLike");
+//		cidadeRepository.findByNomeLike("%zul%").forEach(System.out::println);
 		System.out.println();System.out.println("findByNomeLike2");
 		cidadeRepository.findByNomeLike2("%gama%").forEach(System.out::println);
 		System.out.println();System.out.println("findByHabitantesLessThan");
@@ -49,6 +54,11 @@ public class LocalizacaoApplication implements CommandLineRunner {
 
 		System.out.println();
 		System.out.println("------------------------- RESULTADOS ----------------------------");
+
+		System.out.println();
+		System.out.println("cidadeService.listarCidadesPorNome()");
+		cidadeService.listarCidadesPorNome();
+
 
 	}
 
